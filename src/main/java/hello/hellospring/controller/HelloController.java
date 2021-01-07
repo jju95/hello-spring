@@ -20,26 +20,32 @@ public class HelloController {
 		return "hello";
 	}
 	
-	@GetMapping("hello-mvc")
+	@GetMapping("hello-mvc") // mvc 패턴 방식 
 	public String helloMvc( @RequestParam(value = "name", required = false) String name, Model model) {
 		model.addAttribute("name", name);
 		return "hello-template";
 	}
 	
 	@GetMapping("hello-string")
-	@ResponseBody
+	@ResponseBody // api 방식
 	public String helloString( @RequestParam (value = "name") String name) {
 		return "hello " +  name;
+		
+		// 문자열 return 
 	}
 	
 	@GetMapping("hello-api")
-	@ResponseBody // 이 어노테이션 쓰면 json으로 반환되는게 국룰임 ^^ 
+	@ResponseBody // api 방식 
 	public Hello helloApi(@RequestParam("name") String name) {
 		Hello hell = new Hello();
 		hell.setUserName(name);
-		return hell;
+		return hell; 
+		
+		// 객체를 return 해줄시 표준 규격은 json 방식으로 처리 하기로 약속함 
+		
 	}
-	
+
+	// lombok 사용
 	@Getter
 	@Setter
 	@ToString
