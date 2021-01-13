@@ -34,15 +34,13 @@ public class HelloController {
 		// 문자열 return 
 	}
 	
-	@GetMapping("hello-api")
-	@ResponseBody // api 방식 
+	@GetMapping("hello-api") // api 방식
+	@ResponseBody // json으로 반환하는게 디폴트임  
 	public Hello helloApi(@RequestParam("name") String name) {
-		Hello hell = new Hello();
-		hell.setUserName(name);
-		return hell; 
-		
+		Hello hello = new Hello();
+		hello.setUserName(name);
+		return hello; 
 		// 객체를 return 해줄시 표준 규격은 json 방식으로 처리 하기로 약속함 
-		
 	}
 
 	// lombok 사용
