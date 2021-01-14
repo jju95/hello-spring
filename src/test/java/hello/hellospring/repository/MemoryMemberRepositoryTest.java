@@ -1,15 +1,24 @@
 package hello.hellospring.repository;
 
-import org.apache.logging.log4j.core.Logger;
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import domain.Member;
 import repository.MemoryMemberRepository;
 
-public class MemoryMemberRepositoryTest {
+public class MemoryMemberRepositoryTest { // 소스 관리에 대해서 엄청 중요함
 
 	MemoryMemberRepository repository = new MemoryMemberRepository();
+	
+	@AfterEach // callback 메소드
+	public void AfterEach() {
+		repository.clearStore(); 
+		// 데이터 의존성에 대하여 없애기 위해 
+		// 공용데이터 클리어
+	}
 	
 	@Test
 	public void save() {
@@ -19,7 +28,35 @@ public class MemoryMemberRepositoryTest {
 		
 		Member result = repository.findById(mem.getId()).get();
 		//System.out.println(" result = "+(result == mem));
-		Assertions.assertThat(mem).isEqualTo(result);
+		//org.junit.jupiter.api.Assertions.assertEquals(mem, null);
+		Assertions.assertThat(mem).isEqualTo(result); // 
 	}
 	
+	@Test
+	public void findByName() {
+		Member mem = new Member();
+		mem.setName("heeju");
+		repository.save(mem);
+		
+		Member mem2 = new Member();
+		mem2.setName("heeju 2");
+		repository.save(mem2);
+		
+		Member result = repository.findByName("heeju").get();
+		Assertions.assertThat(result).isEqualTo(mem);
+	}
+	
+	@Test
+	public void findAll() {
+		Member mem = new Member();
+		mem.setName("heeju");
+		repository.save(mem);
+		
+		Member mem2 = new Member();
+		mem2.setName("heeju 2");
+		repository.save(mem2);
+		
+		List<Member> result = repository.findAll();
+		Assertions.assertThat(result.size()).isEqualTo(2);
+	}
 }
