@@ -14,7 +14,7 @@ public class MemoryMemberRepositoryTest { // 소스 관리에 대해서 엄청 �
 	MemoryMemberRepository repository = new MemoryMemberRepository();
 	
 	@AfterEach // callback 메소드
-	public void AfterEach() {
+	public void afterEach() {
 		repository.clearStore(); 
 		// 데이터 의존성에 대하여 없애기 위해 
 		// 공용데이터 클리어
