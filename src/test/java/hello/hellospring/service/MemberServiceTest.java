@@ -11,9 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import domain.Member;
-import repository.MemberRepository;
-import repository.MemoryMemberRepository;
-import service.MemberService;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.service.MemberService;
 
 public class MemberServiceTest {
 

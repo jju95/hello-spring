@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import domain.Member;
-import repository.MemoryMemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 public class MemoryMemberRepositoryTest { // 소스 관리에 대해서 엄청 중요함
 

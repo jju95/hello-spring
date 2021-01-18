@@ -1,4 +1,4 @@
-package service;
+package hello.hellospring.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,16 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.Member;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 import lombok.Setter;
-import repository.MemberRepository;
-import repository.MemoryMemberRepository;
 
-@Service
 public class MemberService {
 	
 	private final MemberRepository repository;
 	
-	@Autowired
 	public MemberService(MemberRepository repository) {
 		this.repository = repository;
 	}
