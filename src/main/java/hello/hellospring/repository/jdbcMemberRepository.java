@@ -1,6 +1,7 @@
 package hello.hellospring.repository;
 
 import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.stereotype.Repository;
 
 import domain.Member;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class jdbcMemberRepository implements MemberRepository {
 
 	private final DataSource dataSource;
