@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import domain.Member;
 
+
 public interface MemberRepository {
 	Member save(Member mem);
 	Optional<Member> findById(Long id);

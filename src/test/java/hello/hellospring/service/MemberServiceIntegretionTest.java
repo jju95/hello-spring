@@ -6,19 +6,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-
 import domain.Member;
-import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
-@SpringBootTest
+@SpringBootTest // 스프링 컨테이너와 테스트를 할께 실행함 ㅎ
 @Transactional /// <-- auto commit 이 아니라서 케이스가 끝나면, 롤백해줌
 public class MemberServiceIntegretionTest {
 
 	// 테스트는 DI 할 필요가 없음
-	@Autowired MemberRepository repository;
-	@Autowired MemberService service;
+	@Autowired  MemberService service;
+	@Autowired  MemoryMemberRepository repository;
 	// --- 
-	
+
 	@Test
 	public void 회원가입() {
 		// given
