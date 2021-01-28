@@ -28,8 +28,9 @@ dependencies {
  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.0'
 
   	// h2 database 
-	compile ("org.springframework.boot:spring-boot-starter-jdbc")
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//compile ("org.springframework.boot:spring-boot-starter-jdbc")
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly "com.h2database:h2"
 	
 }

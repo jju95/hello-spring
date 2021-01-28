@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
-import hello.hellospring.repository.jdbcMemberRepository;
+import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.service.MemberService;
 import lombok.Data;
 
@@ -31,7 +32,8 @@ public class SpringConfig {
 	@Bean 
 	public MemberRepository memberRepository() {
 		//return new MemoryMemberRepository();
-		return new jdbcMemberRepository(dataSource);
+		//return new JdbcMemberRepository(dataSource);
+		return new JdbcTemplateMemberRepository(dataSource);
 	}
 	
 }
